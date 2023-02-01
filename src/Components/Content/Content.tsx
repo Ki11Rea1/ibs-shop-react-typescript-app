@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import Catalog from "./Catalog/Catalog";
-import DetailedPage from "./Detailed/DetailedPage.jsx";
+import DetailedPage from "./Detailed/DetailedPage";
 
 const Content = () => {
   return (

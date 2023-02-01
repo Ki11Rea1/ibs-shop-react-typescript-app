@@ -3,23 +3,21 @@ import { API_URL } from "../../../../API/constants";
 import "./Item.css";
 import Liked from "./Icons/Liked";
 import NotLiked from "./Icons/NotLiked";
+import { ItemType } from "../../../../Utilities/types";
 
-const Item = (props) => {
+const Item = ({ item }: { item: ItemType }) => {
   return (
-    <NavLink to={`/item/${props.item.id}`} className="item">
+    <NavLink to={`/item/${item.id}`} className="item">
       <div className="item__favorite">
-        {props.item.like ? <Liked /> : <NotLiked />}
+        {item.like ? <Liked /> : <NotLiked />}
       </div>
       <div className="item__info">
         <div className="item__photo">
-          <img
-            src={`${API_URL}${props.item.picture.path}`}
-            alt={props.item.picture.alt}
-          />
+          <img src={`${API_URL}${item.picture.path}`} alt={item.picture.alt} />
         </div>
-        <p className="item__name">{props.item.name}</p>
+        <p className="item__name">{item.name}</p>
         <p className="item__price">
-          {`${props.item.price.value} ${props.item.price.currency}`}
+          {`${item.price.value} ${item.price.currency}`}
         </p>
       </div>
     </NavLink>

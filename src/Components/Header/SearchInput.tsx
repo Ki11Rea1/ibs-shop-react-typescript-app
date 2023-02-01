@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "../../Hooks/hooks";
 import { setSearch, setSearchedItems } from "../../ReduxStore/ItemsSlice";
 import useDebounce from "../../Utilities/debounce";
 
 const SearchInput = () => {
-  const dispatch = useDispatch();
-  const [inputValue, setInputValue] = useState();
+  const dispatch = useAppDispatch();
+  const [inputValue, setInputValue] = useState("");
   const debouncedInputValue = useDebounce(inputValue, 1000);
 
-  const handleSearch = (e) => {
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
   };
 

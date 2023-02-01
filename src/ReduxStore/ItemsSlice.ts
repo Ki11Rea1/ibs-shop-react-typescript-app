@@ -1,12 +1,13 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { ItemsState, ItemType } from "./../Utilities/types";
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { getCatalogData } from "../API/getCatalogData";
 import { getDetailedPageData } from "../API/getDetailedPageData";
 
-const initialState = {
+const initialState: ItemsState = {
   items: [],
   item: [],
   searchedItems: [],
-  loading: null,
+  loading: "idle",
   search: "",
 };
 
@@ -20,7 +21,7 @@ export const fetchAllItems = createAsyncThunk(
 
 export const fetchItemById = createAsyncThunk(
   "items/fetchItemById",
-  async (id) => {
+  async (id: string) => {
     const responce = await getDetailedPageData(id);
     return responce;
   }
@@ -30,7 +31,7 @@ export const itemsSlice = createSlice({
   name: "items",
   initialState,
   reducers: {
-    setSearch: (state, action) => {
+    setSearch: (state, action: PayloadAction<string>) => {
       state.search = action.payload;
     },
     setSearchedItems: (state) => {
@@ -39,21 +40,27 @@ export const itemsSlice = createSlice({
       );
     },
   },
-  extraReducers: {
-    [fetchAllItems.pending]: (state) => {
+  extraReducers: (builder) => {
+    builder.addCase(fetchAllItems.pending, (state) => {
       state.loading = "loading";
-    },
-    [fetchAllItems.fulfilled]: (state, action) => {
-      state.loading = "resolved";
-      state.items = action.payload;
-    },
-    [fetchItemById.pending]: (state) => {
+    });
+    builder.addCase(
+      fetchAllItems.fulfilled,
+      (state, action: PayloadAction<ItemType[]>) => {
+        state.loading = "resolved";
+        state.items = action.payload;
+      }
+    );
+    builder.addCase(fetchItemById.pending, (state) => {
       state.loading = "loading";
-    },
-    [fetchItemById.fulfilled]: (state, action) => {
-      state.loading = "resolved";
-      state.item = action.payload;
-    },
+    });
+    builder.addCase(
+      fetchItemById.fulfilled,
+      (state, action: PayloadAction<ItemType>) => {
+        state.loading = "resolved";
+        state.item = action.payload;
+      }
+    );
   },
 });
 
