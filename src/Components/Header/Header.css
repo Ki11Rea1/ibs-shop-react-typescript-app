@@ -1,0 +1,78 @@
+.header {
+  display: flex;
+  height: 2.5rem;
+  margin: 1rem 1.5rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header .search-field {
+  display: flex;
+  align-items: center;
+  width: 18.75rem;
+  height: 2.5rem;
+}
+
+.header .search-field:hover {
+  transition: 0.5s background-color;
+  background: var(--bg-color);
+  box-shadow: 0.125rem 0.125rem 0.3125rem var(--shadow-color);
+}
+
+.header .search-field__search-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.header .search-field__search-input {
+  background-color: transparent;
+  margin-left: 0.5rem;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1rem;
+  border: 0rem;
+  outline: none;
+}
+
+.header .nav-icons {
+  display: flex;
+}
+
+.header .nav-icons * {
+  display: flex;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.header .nav-icons__cart:hover {
+  transition: 0.5s background-color;
+  background: var(--bg-color-darker);
+  box-shadow: 0.125rem 0.125rem 0.3125rem var(--shadow-color);
+  border-radius: 0.125rem;
+}
+
+.header .nav-icons__account:hover {
+  transition: 0.5s background-color;
+  background: var(--bg-color-darker);
+  box-shadow: 0.125rem 0.125rem 0.3125rem #00000026;
+  border-radius: 0.125rem;
+}
+
+.header .nav-icons__cart {
+  justify-content: center;
+  align-items: center;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.header .nav-icons__account {
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-left: 1rem;
+}
