@@ -18,7 +18,8 @@ const SearchInput = () => {
     dispatch(setSearchedItems());
   }, [debouncedInputValue]);
   return (
-    <input
+    <Input
+      color="primary"
       value={inputValue}
       className="search-input"
       placeholder="Search products"

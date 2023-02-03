@@ -9,11 +9,6 @@ header {
     align-items: center;
     width: 18.75rem;
     height: 2.5rem;
-    &:hover {
-      transition: 0.5s background-color;
-      background: var(--bg-color);
-      box-shadow: 0.125rem 0.125rem 0.3125rem var(--shadow-color);
-    }
     .search-icon {
       display: flex;
       align-items: center;

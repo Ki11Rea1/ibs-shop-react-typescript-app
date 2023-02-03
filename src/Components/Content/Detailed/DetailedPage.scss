@@ -73,26 +73,18 @@
     button {
       height: 2.5rem;
       width: 10rem;
+      margin-right: 1rem;
       font-weight: 400;
       font-size: 1.5rem;
-      line-height: 1.75rem;
+      text-transform: none;
       color: var(--bg-color);
-      background: var(--orange-color);
-      border-radius: 0.625rem;
-      border: 0rem;
-      margin-right: 1rem;
       &:hover {
         transition: 0.5s background-color;
         background: #680091;
-        box-shadow: 0.125rem 0.125rem 0.3125rem var(--shadow-color);
       }
     }
     .favorite {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 1.5rem;
-      width: 1.5rem;
+      color: #959595;
     }
   }
 }
