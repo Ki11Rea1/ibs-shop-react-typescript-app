@@ -1,24 +1,26 @@
 import { NavLink } from "react-router-dom";
 import { API_URL } from "../../../../API/constants";
-import "./Item.css";
-import Liked from "./Icons/Liked";
-import NotLiked from "./Icons/NotLiked";
+import "./Item.scss";
 import { ItemType } from "../../../../Utilities/types";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 
 const Item = ({ item }: { item: ItemType }) => {
   return (
     <NavLink to={`/item/${item.id}`} className="item">
-      <div className="item__favorite">
-        {item.like ? <Liked /> : <NotLiked />}
+      <div className="favorite">
+        {item.like ? (
+          <FavoriteIcon color="primary" />
+        ) : (
+          <FavoriteBorderOutlinedIcon />
+        )}
       </div>
-      <div className="item__info">
-        <div className="item__photo">
+      <div className="info">
+        <div className="photo">
           <img src={`${API_URL}${item.picture.path}`} alt={item.picture.alt} />
         </div>
-        <p className="item__name">{item.name}</p>
-        <p className="item__price">
-          {`${item.price.value} ${item.price.currency}`}
-        </p>
+        <p className="name">{item.name}</p>
+        <p className="price">{`${item.price.value} ${item.price.currency}`}</p>
       </div>
     </NavLink>
   );

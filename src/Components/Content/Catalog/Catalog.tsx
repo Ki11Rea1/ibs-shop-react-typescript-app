@@ -1,8 +1,8 @@
 import Item from "./Item/Item";
-import "./Catalog.css";
 import React, { useEffect } from "react";
 import { fetchAllItems } from "../../../ReduxStore/ItemsSlice";
 import { useAppDispatch, useAppSelector } from "../../../Hooks/hooks";
+import { Stack } from "@mui/material";
 
 const Catalog = () => {
   const dispatch = useAppDispatch();
@@ -13,11 +13,17 @@ const Catalog = () => {
     dispatch(fetchAllItems());
   }, [dispatch]);
   return (
-    <div className="catalog">
+    <Stack
+      direction={"row"}
+      className="catalog"
+      flexWrap={"wrap"}
+      justifyContent={"center"}
+      display={"flex"}
+    >
       {(searchedItems.length ? searchedItems : items).map((i) => (
         <Item item={i} key={i.id} />
       ))}
-    </div>
+    </Stack>
   );
 };
 

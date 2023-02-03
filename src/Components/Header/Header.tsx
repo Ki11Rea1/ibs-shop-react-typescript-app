@@ -1,8 +1,8 @@
-import "./Header.css";
-import AccountIcon from "./Icons/AccountIcon";
-import CartIcon from "./Icons/CartIcon";
-import SearchIcon from "./Icons/SearchIcon";
+import "./Header.scss";
 import SearchInput from "./SearchInput";
+import SearchIcon from "@mui/icons-material/Search";
+import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
+import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 
 const Header = () => {
   return (
@@ -12,8 +12,8 @@ const Header = () => {
         <SearchInput />
       </div>
       <nav className="nav-icons">
-        <CartIcon />
-        <AccountIcon />
+        <ShoppingCartOutlinedIcon className="cart" />
+        <AccountCircleOutlinedIcon className="account" />
       </nav>
     </header>
   );
