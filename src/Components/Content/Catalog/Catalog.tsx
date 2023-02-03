@@ -1,5 +1,5 @@
 import Item from "./Item/Item";
-import "./Catalog.css";
+import "./Catalog.scss";
 import React, { useEffect } from "react";
 import { fetchAllItems } from "../../../ReduxStore/ItemsSlice";
 import { useAppDispatch, useAppSelector } from "../../../Hooks/hooks";

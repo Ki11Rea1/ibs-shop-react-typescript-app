@@ -1,3 +1,4 @@
+import { Input } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useAppDispatch } from "../../Hooks/hooks";
 import { setSearch, setSearchedItems } from "../../ReduxStore/ItemsSlice";
@@ -19,7 +20,7 @@ const SearchInput = () => {
   return (
     <input
       value={inputValue}
-      className="search-field__search-input"
+      className="search-input"
       placeholder="Search products"
       onChange={handleSearch}
     />
