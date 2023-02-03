@@ -1,5 +1,4 @@
 import Item from "./Item/Item";
-import "./Catalog.scss";
 import React, { useEffect } from "react";
 import { fetchAllItems } from "../../../ReduxStore/ItemsSlice";
 import { useAppDispatch, useAppSelector } from "../../../Hooks/hooks";
@@ -14,7 +13,13 @@ const Catalog = () => {
     dispatch(fetchAllItems());
   }, [dispatch]);
   return (
-    <Stack direction={"row"} className="catalog">
+    <Stack
+      direction={"row"}
+      className="catalog"
+      flexWrap={"wrap"}
+      justifyContent={"center"}
+      display={"flex"}
+    >
       {(searchedItems.length ? searchedItems : items).map((i) => (
         <Item item={i} key={i.id} />
       ))}
